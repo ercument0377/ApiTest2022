@@ -11,9 +11,9 @@ public class HerOkuAppBaseUrl {
     // RequestSpecification  data tipinde obje oluşturulur
     protected RequestSpecification spec;
 
-    // Eger methodun urunde @Before anatation kullanırsanız, bu method her bir test methoddan once calısır
-    // @Before anatation ne kullanırsınız
-    // cevap: eger ben bir methodun herbir test methodundan once calısmasını ıstıyorsan @Before anatation kullanırım
+    // Eger methodun önünde @Before anotation kullanırsanız, bu method her bir test methoddan once calısır
+    // @Before anotation ne zaman kullanırsınız?
+    // Cevap: eger ben bir methodun herbir test methodundan once calısmasını ıstıyorsam @Before anotation kullanırım
 
     @Before
     public void setUp(){

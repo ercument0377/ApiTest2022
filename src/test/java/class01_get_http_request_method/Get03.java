@@ -1,11 +1,12 @@
 package class01_get_http_request_method;
 
 import base_url.JsonPlaceHolderBaseUrl;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.apache.http.entity.ContentType;
 import org.junit.Test;
 
-import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.equalTo;
 
 public class Get03 extends JsonPlaceHolderBaseUrl {
     /*
@@ -26,29 +27,43 @@ public class Get03 extends JsonPlaceHolderBaseUrl {
 */
 
     @Test
-    public void get03();
-    //1.adım url set et
-    spec.pathParams("ilk","todos","ikinci",23);
-
-    //2.adım beklenen (expected)data set et
-
-    //3.adım  get request yapılır ve get response alırız
-
-   Response response = given().spec(spec).when().get("/{ilk}/{ikinci}");
-    response.print();
+    public void get03() {
 
 
-    //4.adım Assertion yap
-    //1.yol
-    response.then().
-    assertThat().
-    statusCode(200).
-    contentType(ContentType.JSON).
-    body("Litle",equalTo(      )).
-    body("completed".equalTo(false)).
-    body("userId",equalTo(2));
+        //1.adım url set et
+        spec.pathParams("ilk", "todos", "ikinci", 23);
+
+        //2.adım beklenen (expected)data set et
+
+        //3.adım  get request yapılır ve get response alırız
+
+        Response response = given().spec(spec).when().get("/{ilk}/{ikinci}");
+        response.print();
+
+
+        //4.adım Assertion yap
+        //1.yol
+        response.
+                then().
+                assertThat().
+                statusCode(200).
+                contentType(ContentType.JSON).
+                body("title", equalTo("et itaque necessitatibus maxime molestiae qui quas velit")).
+                body("completed",equalTo(false)).
+                body("userId", equalTo(2));  // değişken olduğu için test etmeyiz
+
+        //2. yol
+        response.
+                then().
+                assertThat().
+                statusCode(200).
+                contentType(ContentType.JSON).
+                body("title", equalTo("et itaque necessitatibus maxime molestiae qui quas velit"),
+                        "completed",equalTo(false),
+                        "userId", equalTo(2));
 
 
 
+    }
 
 }
