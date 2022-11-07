@@ -68,6 +68,9 @@ public class Get06 extends HerOkuAppBaseUrl {
         //2.yol
 
 
+        ////*///*///
+
+
     }
 
 
