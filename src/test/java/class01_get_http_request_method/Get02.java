@@ -24,6 +24,13 @@ public class Get02 extends HerOkuAppBaseUrl {
        Response body "ArcaneData" icermez
    And
        Server "Cowboy" olmali
+
+       //1.adım : set the url  (burada manuel olarak yapıyoruz)
+       //2. adım: beklenen datayı (expected data) set et
+       //3. adım: Get request gonderilir ve Get Respanse alınır
+       //4.adım: assertion yap (doğrulama demek)
+
+
 */
     @Test
     public void get02() {
@@ -48,6 +55,8 @@ public class Get02 extends HerOkuAppBaseUrl {
        assertFalse(response.asString().contains("ArcaneData"));
         //beklenen data test case den gelir, actual (gercekte olan) data API den gelir
        assertEquals("Cowboy",response.getHeader("Server"));
+
+
 
     }
 }

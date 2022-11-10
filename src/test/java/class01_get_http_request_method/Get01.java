@@ -33,8 +33,14 @@ public class Get01 {
        Content Type'i JSON olmali
        Content Type should be JSON
    And
-       Statu Line(duzeyi) HTTP/1.1 200 OK olmali
+       Status Line(duzeyi) HTTP/1.1 200 OK olmali
        Status Line should be HTTP/1.1 200 OK
+
+
+       //1.adım : set the url  (burada manuel olarak yapıyoruz)
+       //2. adım: beklenen datayı (expected data) set et
+       //3. adım: Get request gonderilir ve Get Respanse alınır
+       //4.adım: assertion yap (doğrulama demek)
 */
 @Test
     public void get01(){

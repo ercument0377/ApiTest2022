@@ -24,6 +24,11 @@ public class Get03 extends JsonPlaceHolderBaseUrl {
        "completed" is false
    And
        "userId"  2 olmali
+
+       //1.adım : set the url  (burada manuel olarak yapıyoruz)
+       //2. adım: beklenen datayı (expected data) set et
+       //3. adım: Get request gonderilir ve Get Respanse alınır
+       //4.adım: assertion yap (doğrulama demek)
 */
 
     @Test
