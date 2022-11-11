@@ -1,6 +1,7 @@
 package class01_get_http_request_method;
 
 import base_url.HerOkuAppBaseUrl;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 
@@ -46,7 +47,8 @@ public class Get02 extends HerOkuAppBaseUrl {
 
         //4. adım: Assertion
 
-       response.then().assertThat().statusCode(404).statusLine("HTTP/1.1 404 Not Found");
+       response.then().assertThat().statusCode(404).contentType(ContentType.TEXT).
+               statusLine("HTTP/1.1 404 Not Found");
 
     //    assertTrue(true) ==> yesil tik   assertTrue(false) ==> carpi (hata) verecek
 

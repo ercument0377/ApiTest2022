@@ -81,7 +81,7 @@ public class Get08 extends JsonPlaceHolderBaseUrl {
 
         //Gson kullanarak, API den gelen Json datayı Java object formatına ceviriyoruz
 
-        Map<String, Object> actualData = response.as(HashMap.class);
+        Map<String, Object> actualData = response.as(HashMap.class); // de-serilazation denilir
         System.out.println(actualData);
 
         //   4.adım assertion  yap

@@ -23,10 +23,11 @@ public class Get09 extends HerOkuAppBaseUrl {
                 "lastname": "Brown",
                 "totalprice": 111,
                 "depositpaid": true,
-                "bookingdates": {
+                "bookingdates":
+                {
                     "checkin": "2018-01-01",
                     "checkout": "2019-01-01"
-    },
+                  },
     "additionalneeds": "Breakfast"
         }
  */
