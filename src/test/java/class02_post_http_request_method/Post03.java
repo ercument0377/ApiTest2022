@@ -16,7 +16,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class Post03 extends AgroMonitoringBaseUrl {
     /*
        Given
-        "http://api.agromonitoring.com/agro/1.0/polygons?appid=7bd9969a12d424af27967d6d821dc5f3"
+        "http://api.agromonitoring.com/agro/1.0/polygons?appid=f6f34736da064d30fa1c2cab6e31972e"
 
             {
                "name":"Polygon Sample",
@@ -74,7 +74,7 @@ public class Post03 extends AgroMonitoringBaseUrl {
     public void post03(){
         //   1.adım:  url yi set et
         spec.pathParams("first","agro","second",1.0, "final","polygons").
-                queryParams("appid","7bd9969a12d424af27967d6d821dc5f3","duplicated",true);
+                queryParams("appid","f6f34736da064d30fa1c2cab6e31972e","duplicated",true);
 
 
         //   2. adım beklenen datayı set et
