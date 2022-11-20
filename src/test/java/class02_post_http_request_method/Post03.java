@@ -87,7 +87,7 @@ public class Post03 extends AgroMonitoringBaseUrl {
         response.prettyPrint();
 
     // request body'ye yeni data eklenebilir.
-        requestBodyMap.put("ares",190.6484);
+        requestBodyMap.put("area",190.9484);
         System.out.println(requestBodyMap);
 
 

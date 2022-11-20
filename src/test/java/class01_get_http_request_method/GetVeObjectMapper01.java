@@ -35,16 +35,16 @@ Then
         spec.pathParams("first", "todos","second",198);
 
         //2.adım: beklenen(expected) datayı set et
-     /*      //1.yol
-        String beklenenData = "{\n"+
-                "\"userId\": 10,\n"+
-                "\"id\": 198,\n"+
-                "\title\": \"quis eius est sint explicabo\",\n" +
-                "\"completed\": true\n " +
-                        "   }";
-
-        Map<String, Object> beklenenDataMap = JsonUtil.jsoniJavayaCevir(beklenenData, HashMap.class);
-       System.out.println(beklenenDataMap);  */
+        //1.yol
+//         String beklenenData = "{\n" +
+//                 " \"userId\": 10,\n" +
+//                 "\"id\": 198,\n" +
+//                 " \"title\": \"quis eius est sint explicabo\",\n" +
+//                 "\"completed\": true\n" +
+//                 "  }";
+//
+//      Map<String, Object> beklenenDataMap=   JsonUtil.jsoniJavayaCevir(beklenenData, HashMap.class);
+//        System.out.println(beklenenDataMap);
             //2.yol
         JsonPlaceHolderTestData data = new JsonPlaceHolderTestData();
          String beklenenDAtaMap2 =   data.beklenenDataStringFormatinda(10,"quis eius est sint explicabo", true);

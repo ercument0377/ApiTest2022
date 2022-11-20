@@ -2,68 +2,40 @@ package class06_pojos;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
-@JsonIgnoreProperties
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class GoRestPojo {
-    private String name;
-    private String email;
-    private String gender;
-    private String status;
+    private Object meta;
+    private GoRestDataPojo data;
 
-    public Data() {
+    public GoRestPojo() {
     }
 
-    public Data( String name, String email, String gender, String status) {
-        super();
-        this.name = name;
-        this.email = email;
-        this.gender = gender;
-        this.status = status;
+    public GoRestPojo(Object meta, GoRestDataPojo data) {
+        this.meta = meta;
+        this.data = data;
     }
 
-
-    public void setId(Integer id) {
-        this.id = id;
+    public Object getMeta() {
+        return meta;
     }
 
-    public String getName() {
-        return name;
+    public void setMeta(Object meta) {
+        this.meta = meta;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public GoRestDataPojo getData() {
+        return data;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setData(GoRestDataPojo data) {
+        this.data = data;
     }
 
     @Override
     public String toString() {
         return "GoRestPojo{" +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", gender='" + gender + '\'' +
-                ", status='" + status + '\'' +
+                "meta=" + meta +
+                ", data=" + data +
                 '}';
     }
 }

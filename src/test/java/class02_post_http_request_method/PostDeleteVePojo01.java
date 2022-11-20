@@ -15,12 +15,19 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class PostDeleteVePojo01 extends JsonPlaceHolderBaseUrl {
     /*
-
-
-
+        Given
+            https://jsonplaceholder.typicode.com/todos
+            {
+            "userId": 55,
+            "title": "Tidy your room",
+            "completed": false
+            }
+        When
+            Url'e POST Request gonder
+            Url'e Delete Request gonder
+        Then
+            response body is like { }
      */
-
-
 
     @Test
     public void postDeleteVePojo01(){

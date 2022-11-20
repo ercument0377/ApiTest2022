@@ -20,13 +20,13 @@ Then
     Status code is 200
 And response body is like
         {
-    "firstname": "Eric",
-    "lastname": "Smith",
-    "totalprice": 773,
+    "firstname": "Jim",
+    "lastname": "Jackson",
+    "totalprice": 478,
     "depositpaid": true,
     "bookingdates": {
-        "checkin": "2017-12-15",
-        "checkout": "2020-01-01"
+        "checkin": "22020-07-01",
+        "checkout": "2022-08-22"
     },
     "additionalneeds": "Breakfast"
 }
@@ -38,8 +38,8 @@ And response body is like
 
         //2.adım expected datayı set et
 
-        BookingDatesPojo bookingDates = new BookingDatesPojo("2017-12-15","2020-01-01");
-        BookingPojo expectedData = new BookingPojo("Eric", "Smith",773,true, bookingDates, "Breakfast");
+        BookingDatesPojo bookingDates = new BookingDatesPojo("2020-07-01","2022-08-22");
+        BookingPojo expectedData = new BookingPojo("Jim", "Jackson",478,true, bookingDates, "Breakfast");
         System.out.println(expectedData);
 
         //3.adım request gonder response al
@@ -50,17 +50,17 @@ And response body is like
 
 
         //4.adım assertion yap
-        BookingPojo actualData = response.as(BookingPojo.class);
+        BookingPojo actualData =  response.as(BookingPojo.class);
         System.out.println(actualData);
 
-        assertEquals(200,response.getStatusCode());
+        assertEquals(200, response.getStatusCode() );
 
-        assertEquals("isimler eslesmiyor",expectedData.getFirstname(), actualData.getFirstname());
-        assertEquals("Toplam ucret eslesmiyor",expectedData.getTotalprice(), actualData.getTotalprice());
+        assertEquals("isimler eslesmiyor", expectedData.getFirstname(), actualData.getFirstname());
+        assertEquals("Toplam ucret eslesmiyor", expectedData.getTotalprice(), actualData.getTotalprice());
+        assertEquals(expectedData.getLastname(), actualData.getLastname());
 
         assertEquals(expectedData.getBookingdates().getCheckout(), actualData.getBookingdates().getCheckout());
-
-
+        assertEquals(expectedData.getBookingdates().getCheckin(), actualData.getBookingdates().getCheckin());
 
     }
 

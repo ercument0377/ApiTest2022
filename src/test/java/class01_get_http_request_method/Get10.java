@@ -7,7 +7,7 @@ import class06_pojos.GoRestPojo;
 import io.restassured.response.Response;
 import org.junit.Test;
 
-import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class Get10 extends GoRestApiBaseUrl {
@@ -25,10 +25,10 @@ And
             " "meta": null,
             "data": {
     "id": 2619,
-    "name": "Dhruv Pilla",
+    "name": "Bhargavi Menon",
     "email": "dhruv_pilla@rohan.com",
-    "gender": "male",
-    "status": "active"
+    "gender": "female",
+    "status": "inactive"
     }
         }
 */
@@ -39,7 +39,7 @@ And
         spec.pathParams("first", "users", "second", 2619);
 
         //2.adım: beklenen(expected) datayı set et
-        GoRestDataPojo dataPojo = new GoRestDataPojo("Dhruv Pilla","dhruv_pilla@rohan.com","male","active");
+        GoRestDataPojo dataPojo = new GoRestDataPojo("Bhargavi Menon","dhruv_pilla@rohan.com","female","inactive");
         GoRestPojo expectedDataPojo = new GoRestPojo(null, dataPojo);
         System.out.println(expectedDataPojo);
 
@@ -53,8 +53,10 @@ And
         //4.adım assertion yap
 
         assertEquals(200, response.getStatusCode());
+        assertEquals(expectedDataPojo.getMeta(), actualDataPojo.getMeta());
         assertEquals(expectedDataPojo.getData().getName(), actualDataPojo.getData().getName());
-        assertEquals(expectedDataPojo.get);
+        assertEquals(expectedDataPojo.getData().getGender(), actualDataPojo.getData().getGender());
+        assertEquals(expectedDataPojo.getData().getStatus(), actualDataPojo.getData().getStatus());
 
 
 
