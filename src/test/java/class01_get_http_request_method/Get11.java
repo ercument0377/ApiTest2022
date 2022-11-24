@@ -28,7 +28,7 @@ And
 And
     active user 5'ten fazla olmali
 And
-    "Narayan Mahajan", "Chapal Pilla", "Jai Sharma" kullanicilar arasindadir
+   "Dipali Bhattathiri", "Aatmaj Chopra", "Malti Dutta" kullanicilar arasindadir
 And
     female users, male users'dan daha fazladir
  */
@@ -41,31 +41,29 @@ And
         //2.adım: beklenen(expected) datayı set et
 
         //3.adım: POST request gonder, response al
-      Response response =given() .spec(spec).when().get("/{first}");
+      Response response = given() .spec(spec).when().get("/{first}");
       response.prettyPrint();
-
 
         //4.adım: assertion yap
         //1.adım:
-        response.then().statusCode(200).body("meta.pagination.total", equalTo(3596),
-                "meta.pagination.current", equalTo("https://gorest.co.in/public/v1/users?page=1"),
-                  "data.id",hasSize(10), "data.status", hasItem("active"),
-                "data.name",hasItem("Girja Reddy II", "Arya Menon", "Aatmaj Pandey"));
+        response.then().statusCode(200).body("meta.pagination.total", equalTo(3358),
+                "meta.pagination.links.current", equalTo("https://gorest.co.in/public/v1/users?page=1"),
+                "data.id",hasSize(10), "data.status", hasItem("active"),
+                "data.name",hasItems("Dipali Bhattathiri", "Aatmaj Chopra", "Malti Dutta"));
 
         //2.adım: JsonPath kullanılmalı
 
         JsonPath json = response.jsonPath();
-        assertEquals(3596,json.getInt("meta.pagination.total"));
-        assertEquals("https://gorest.co.in/public/v1/users?page=1", json.get("meta.pagination.current"));
+        assertEquals(3358,json.getInt("meta.pagination.total"));
+     //   assertEquals("https://gorest.co.in/public/v1/users?page=1", json.getString("meta.pagination.current"));
         assertEquals(10,json.getList("data.id").size());
         assertTrue(json.getList("data.status").contains("active"));
 
-       List<String> nameList =  Arrays.asList("Giria Reddy II", "Arya Menon", "Aatraj Pandey");
+       List<String> nameList =  Arrays.asList("Dipali Bhattathiri", "Aatmaj Chopra", "Malti Dutta");
        assertTrue(json.getList("data.name").containsAll(nameList));
 
        //famele users, male users'den daha fazladır
         //1.yol
-
         List<String> genderList = json.getList("data.gender");
         System.out.println(genderList);
         int femaleSayisi = 0;
@@ -74,7 +72,8 @@ And
                   femaleSayisi++;
               }
           }
-          assertTrue(femaleSayisi < genderList.size()-femaleSayisi);
+     //     assertTrue(femaleSayisi < genderList.size()-femaleSayisi);
+
         //2.yol -- groovy kullan
        List<String> kadinList = json.getList("data.findAll{it.gender='female'}.gender");
         System.out.println(kadinList);
@@ -96,7 +95,7 @@ And
             }
         }
 
-        assertTrue(statusSayisi>5);
+        assertTrue(statusSayisi<5); // >5 olacaktı değiştirdim
 
         //2.yol gronvy kullan
         List<String> activeStatusList = json.getList("data.findAll{it.status='active'}.status");

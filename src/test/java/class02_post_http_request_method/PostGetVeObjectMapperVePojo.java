@@ -92,7 +92,7 @@ public class PostGetVeObjectMapperVePojo  extends HerOkuAppBaseUrl {
     assertEquals(postResponsePojo.getBooking().getLastname(), getResponsePojo.getLastname());
     assertEquals(postResponsePojo.getBooking().getBookingdates().getCheckout(), getResponsePojo.getBookingdates().getCheckout());
     //veya
-    assertEquals(expectedDAta.getTotalprice(), getResponsePojo.getAdditionalneeds());
+    assertEquals(expectedDAta.getTotalprice(), getResponsePojo.getTotalprice());
     assertEquals(expectedDAta.getAdditionalneeds(), getResponsePojo.getAdditionalneeds());
     assertEquals(expectedDAta.getBookingdates().getCheckin(), getResponsePojo.getBookingdates().getCheckin());
 
