@@ -36,8 +36,8 @@ public class Get02 extends HerOkuAppBaseUrl {
     @Test
     public void get02() {
         //1.set the url
-        //  String url = " https://restful-booker.herokuapp.com/booking/10012"; // önerilmez
-        spec.pathParams("first", "booking", "second", 10012);
+        //  String url = " https://restful-booker.herokuapp.com/booking/1001"; // önerilmez
+        spec.pathParams("first", "booking", "second", 1001);
 
         //2.adım : beklenen detayı set et
 

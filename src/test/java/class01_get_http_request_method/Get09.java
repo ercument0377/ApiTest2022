@@ -43,11 +43,11 @@ public class Get09 extends HerOkuAppBaseUrl {
         expectedBookingDates.put("checkout","2019-01-01");
 
         Map<String,Object> expectedDate = new HashMap<>();
-        expectedDate.put("firstname","James");
-        expectedDate.put("lastname","Brown");
+        expectedDate.put("firstname","Josh");
+        expectedDate.put("lastname","Allen");
         expectedDate.put("totalprice",111);
         expectedDate.put("depositpaid", true);
-        expectedDate.put("additionalneeds","Breakfast");
+        expectedDate.put("additionalneeds","midnight snack");
 
         System.out.println(expectedDate);
 

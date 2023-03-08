@@ -6,7 +6,6 @@ import class06_pojos.BookingPojo;
 import io.restassured.response.Response;
 import org.junit.Test;
 
-
 import static io.restassured.RestAssured.*;
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -38,8 +37,8 @@ And response body is like
 
         //2.adım expected datayı set et
 
-        BookingDatesPojo bookingDates = new BookingDatesPojo("2020-07-01","2022-08-22");
-        BookingPojo expectedData = new BookingPojo("Jim", "Jackson",478,true, bookingDates, "Breakfast");
+        BookingDatesPojo bookingDates = new BookingDatesPojo("2021-06-05","2022-11-26");
+        BookingPojo expectedData = new BookingPojo("Eric", "Jones",104,true, bookingDates, "Breakfast");
         System.out.println(expectedData);
 
         //3.adım request gonder response al

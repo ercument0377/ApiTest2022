@@ -52,7 +52,7 @@ public class Get01 {
     //3. adım: Get request gonderilir ve Get Respanse alınır.
 
    Response response = given().when().get(url);
-   response.prettyPrint();
+   response.prettyPrint();  // yazdırma işlemi yapar
 
 
 

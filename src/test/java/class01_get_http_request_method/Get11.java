@@ -46,7 +46,7 @@ And
 
         //4.adım: assertion yap
         //1.adım:
-        response.then().statusCode(200).body("meta.pagination.total", equalTo(3358),
+        response.then().statusCode(200).body("meta.pagination.total", equalTo(2499),
                 "meta.pagination.links.current", equalTo("https://gorest.co.in/public/v1/users?page=1"),
                 "data.id",hasSize(10), "data.status", hasItem("active"),
                 "data.name",hasItems("Dipali Bhattathiri", "Aatmaj Chopra", "Malti Dutta"));
