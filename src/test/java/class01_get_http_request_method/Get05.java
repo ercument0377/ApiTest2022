@@ -44,10 +44,10 @@ public class Get05 extends HerOkuAppBaseUrl {
         response.prettyPrint();
 
         //   4.adım assertion  yap
-        response.then().assertThat().statusCode(200).contentType(ContentType.JSON).body("bookingid",hasItem(38));
+        response.then().assertThat().statusCode(200).contentType(ContentType.JSON).body("bookingid",hasItem(3273));
 
         response.then().assertThat().statusCode(200);
-        assertTrue(response.asString().contains("booking"));
+        assertTrue(response.asString().contains("bookingid"));
 
 
 

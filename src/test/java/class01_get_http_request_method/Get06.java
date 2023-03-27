@@ -15,7 +15,7 @@ public class Get06 extends HerOkuAppBaseUrl {
 
     /*
         Given
-            https://restful-booker.herokuapp.com/booking/335
+            https://restful-booker.herokuapp.com/booking/337
         When
             Kullanici GET request gonderir => URL
         Then
@@ -25,16 +25,17 @@ public class Get06 extends HerOkuAppBaseUrl {
         And
             Response body asagidaki gibi olmali;
             {
-                            "firstname": "James",
-                            "lastname": "Bond",
-                            "totalprice": 700,
+                            "firstname": "Josh",
+                            "lastname": "Allen",
+                            "totalprice": 111,
                             "depositpaid": true,
                             "bookingdates": {
-                                      "checkin": "2022-11-11",
-                                         "checkout": "2023-01-01"
+                                      "checkin": "2018-01-01",
+                                         "checkout": "2019-01-01"
     },
-    "additionalneeds": "Breakfast"
+    "additionalneeds": "super bowls"
             }"
+
             }
 
          //   1.adım  url yi set et
@@ -47,7 +48,7 @@ public class Get06 extends HerOkuAppBaseUrl {
     public void get06(){
 
         //   1.adım  url yi set et
-        spec.pathParams("first","booking","second",335);
+        spec.pathParams("first","booking","second",337);
 
         //   2. adım beklenen datayı set et
 
@@ -60,38 +61,39 @@ public class Get06 extends HerOkuAppBaseUrl {
            //1.yol
 
         response.then().assertThat().statusCode(200).contentType(ContentType.JSON).
-                body("firstname", equalTo("James")).
-                body("lastname",equalTo("Bond")).
-                body("totalprice",equalTo(700)).
+                body("firstname", equalTo("Josh")).
+                body("lastname",equalTo("Allen")).
+                body("totalprice",equalTo(111)).
                 body("depositpaid",equalTo(true)).
-                body("bookingdates.checkin",equalTo("2022-11-11")).
-                body("bookingdates.checkout",equalTo("2023-01-01")).
-                body("additionalneeds",equalTo("Breakfast"));
+                body("bookingdates.checkin",equalTo("2018-01-01")).
+                body("bookingdates.checkout",equalTo("2019-01-01")).
+                body("additionalneeds",equalTo("super bowls"));
 
             //2.yol JsonPath kullanarak assertion yaparız
         response.then().assertThat().statusCode(200).contentType(ContentType.JSON);
 
         JsonPath json = response.jsonPath();
-        assertEquals("isimler islesmiyor ","James", json.getString("firstname"));
-        assertEquals("soyisimler islesmiyor ","Bond", json.getString("lastname"));
-        assertEquals("totalprice islesmiyor ",700, json.getInt("totalprice"));
+        assertEquals("isimler islesmiyor ","Josh", json.getString("firstname"));
+        assertEquals("soyisimler islesmiyor ","Allen", json.getString("lastname"));
+        assertEquals("totalprice islesmiyor ",111, json.getInt("totalprice"));
         assertEquals("depositpaid  eslesmiyor ", true, json.get("depositpaid"));
-        assertEquals("checkin date islesmiyor ","2022-11-11", json.getString("bookingdates.checkin"));
-        assertEquals("checkout date islesmiyor ","2023-01-01", json.getString("bookingdates.checkout"));
+        assertEquals("checkin date islesmiyor ","2018-01-01", json.getString("bookingdates.checkin"));
+        assertEquals("checkout date islesmiyor ","2019-01-01", json.getString("bookingdates.checkout"));
+
 
             //3.yol SoftAssert (hepsini çalıştırır ve butun hataları gösterir)
         //i- SoftAssert objesini olusturma
         SoftAssert softAssert = new SoftAssert();
 
-        //ii- Soft Assert objesini kullanarak Assertion yamak
-        softAssert.assertEquals(json.getString("firstname"), "James", "isimler eslesmiyor");
-        softAssert.assertEquals(json.getString("lastname"), "Bond", "soyisimler eslesmiyor");
+        //ii- Soft Assert objesini kullanarak Assertion yapmak
+        softAssert.assertEquals(json.getString("firstname"), "Josh", "isimler eslesmiyor");
+        softAssert.assertEquals(json.getString("lastname"), "Allen", "soyisimler eslesmiyor");
 
-        softAssert.assertEquals(json.getInt("totalprice"), 700, "totalprice eslesmiyor");
+        softAssert.assertEquals(json.getInt("totalprice"), 111, "totalprice eslesmiyor");
         softAssert.assertEquals(json.getBoolean("depositpaid"), true, "depositpaid eslesmiyor");
-        softAssert.assertEquals(json.getString("bookingdates.checkin"), "2022-11-11", "checkin date eslesmiyor");
-        softAssert.assertEquals(json.getString("bookingdates.checkout"), "2023-01-01", "checkout date eslesmiyor");
-        softAssert.assertEquals(json.getString("additionalneeds"), "Breakfast", "additionalneeds eslesmiyor");
+        softAssert.assertEquals(json.getString("bookingdates.checkin"), "2018-01-01", "checkin date eslesmiyor");
+        softAssert.assertEquals(json.getString("bookingdates.checkout"), "2019-01-01", "checkout date eslesmiyor");
+        softAssert.assertEquals(json.getString("additionalneeds"), "super bowls", "additionalneeds eslesmiyor");
 
         //MUTLAKA EN SONDA asertAll() yapılmalı. Eger assertAll() kullanmazsanız testini gecti görünür fakat bu anlamlı olmayabilir
         softAssert.assertAll();

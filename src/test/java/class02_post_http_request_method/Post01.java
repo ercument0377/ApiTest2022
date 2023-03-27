@@ -15,16 +15,16 @@ public class Post01 extends HerOkuAppBaseUrl {
     /*
 Given
  https://restful-booker.herokuapp.com/booking
-    {
-    "firstname": "Selim",
-    "lastname": "Ak",
-    "totalprice": 11111,
-    "depositpaid": true,
-     "bookingdates": {
-                "checkin": "2021-09-09",
-                "checkout": "2021-09-21"
-                    }
-     }
+{
+"firstname": "Selim",
+"lastname": "Ak",
+"totalprice": 11111,
+"depositpaid": true,
+ "bookingdates": {
+            "checkin": "2021-09-09",
+            "checkout": "2021-09-21"
+                }
+ }
 When
      URL'e POST Request gonder
 Then
@@ -76,6 +76,7 @@ Then
 
         //   4.adım assertion  yap
         response.then().assertThat().statusCode(200);
+
        Map<String, Object> actualData = response.as(HashMap.class);
        System.out.println(actualData);
 

@@ -9,8 +9,7 @@ public class AgroMonitoringTestData {
             {-121.1779f, 37.6687f},
             {-121.1773f, 37.6792f},
             {-121.1958f, 37.6792f},
-            {-121.1958f, 37.6683f}}};
-
+            {-121.1958f, 37.6683f} }  };
 
 
     public Map<String, Object> geometrySetUp(){
@@ -32,7 +31,7 @@ public class AgroMonitoringTestData {
         public Map<String, Object> requestBodySetUp(){
 
             Map<String, Object> requestBody = new HashMap<>();
-            requestBody.put("name"," Polygon Sample");
+            requestBody.put("name","Polygon Sample");
             requestBody.put("geo_json", geometrySetUp());
             return requestBody;
 

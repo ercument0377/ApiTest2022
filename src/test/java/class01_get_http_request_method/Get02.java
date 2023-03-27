@@ -55,6 +55,7 @@ public class Get02 extends HerOkuAppBaseUrl {
       assertTrue(response.asString().contains("Not Found"));
 
        assertFalse(response.asString().contains("ArcaneData"));
+
         //beklenen data test case den gelir, actual (gercekte olan) data API den gelir
        assertEquals("Cowboy",response.getHeader("Server"));
 

@@ -13,14 +13,14 @@ import static org.testng.AssertJUnit.assertEquals;
 public class Get09 extends HerOkuAppBaseUrl {
 /*
     Given
-        https://restful-booker.herokuapp.com/booking/5450
+        https://restful-booker.herokuapp.com/booking/74
     When
         Url'e GET Request gonder
     Then
         Response body asagidaki gibi olmali;
         {
-                "firstname": "James",
-                "lastname": "Brown",
+                "firstname": "Josh",
+                "lastname": "Allen",
                 "totalprice": 111,
                 "depositpaid": true,
                 "bookingdates":
@@ -28,7 +28,7 @@ public class Get09 extends HerOkuAppBaseUrl {
                     "checkin": "2018-01-01",
                     "checkout": "2019-01-01"
                   },
-    "additionalneeds": "Breakfast"
+    "additionalneeds": "midnight snack"
         }
  */
 
@@ -42,12 +42,15 @@ public class Get09 extends HerOkuAppBaseUrl {
         expectedBookingDates.put("checkin","2018-01-01" );
         expectedBookingDates.put("checkout","2019-01-01");
 
+      //  System.out.println("expectedBookingDates  = " + expectedBookingDates);
+
         Map<String,Object> expectedDate = new HashMap<>();
         expectedDate.put("firstname","Josh");
         expectedDate.put("lastname","Allen");
         expectedDate.put("totalprice",111);
         expectedDate.put("depositpaid", true);
         expectedDate.put("additionalneeds","midnight snack");
+
 
         System.out.println(expectedDate);
 
@@ -56,7 +59,7 @@ public class Get09 extends HerOkuAppBaseUrl {
         response.prettyPrint();
         response.as(HashMap.class);
 
-        Map<String, Object> actualData = response.as(HashMap.class);
+        Map<String, Object> actualData = response.as(HashMap.class);  // json ı map formatına çevirdik
         System.out.println(actualData);
 
 
@@ -67,7 +70,7 @@ public class Get09 extends HerOkuAppBaseUrl {
         assertEquals(expectedDate.get("depositpaid"),actualData.get("depositpaid"));
         assertEquals(expectedDate.get("additionalneeds"),actualData.get("additionalneeds"));
 
-       assertEquals(expectedBookingDates.get("checkin"), ((Map)actualData.get("bookingdates")).get("checkin"));
+        assertEquals(expectedBookingDates.get("checkin"), ((Map)actualData.get("bookingdates")).get("checkin"));
         assertEquals(expectedBookingDates.get("checkout"), ((Map)actualData.get("bookingdates")).get("checkout"));
 
 

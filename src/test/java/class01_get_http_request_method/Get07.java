@@ -84,7 +84,7 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
         assertTrue(titleList.contains("delectus aut autem"));
 
             //2.yol
-        assertTrue(titleList.stream().anyMatch(t->t.equals("delectus aut autem")));
+        assertTrue(titleList.stream().anyMatch(t->t.equals("delectus aut autem"))); //lambda formatı
 
 
     }

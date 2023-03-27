@@ -61,7 +61,7 @@ public class Post02 extends JsonPlaceHolderBaseUrl {
 
         //   4.adım assertion  yap
 
-       Map< String, Object> actualData =  response.as(HashMap.class); // De-serialization  map formatına dönüştürdük
+       Map< String, Object> actualData =  response.as(HashMap.class); // De-serialization  map formatına dönüştürdük jshon u java ya cevirdik
 
         System.out.println(actualData);
 

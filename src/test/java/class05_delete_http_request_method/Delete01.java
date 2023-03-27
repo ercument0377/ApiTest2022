@@ -13,7 +13,7 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class Delete01 extends JsonPlaceHolderBaseUrl {
     /*Given
-    "http//www.
+    "https://jsonplaceholder.typicode.com/todos/198
     When
     url'e DELETE Request gonder
 

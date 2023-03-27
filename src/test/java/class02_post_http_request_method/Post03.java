@@ -18,26 +18,7 @@ public class Post03 extends AgroMonitoringBaseUrl {
        Given
         "http://api.agromonitoring.com/agro/1.0/polygons?appid=f6f34736da064d30fa1c2cab6e31972e"
 
-            {
-               "name":"Polygon Sample",
-               "geo_json":{
-                  "type":"Feature",
-                  "properties":{},
-                  "geometry":{
-                        "type":"Polygon",
-                        "coordinates":
-                       [
-                          [
-                               [-121.1958,37.6683],
-                               [-121.1779,37.6687],
-                               [-121.1773,37.6792],
-                               [-121.1958,37.6792],
-                               [-121.1958,37.6683]
-                            ]
-                         ]
-                      }
-                   }
-              }
+
     When
          I send POST Request to the Url
     Then
@@ -98,7 +79,7 @@ public class Post03 extends AgroMonitoringBaseUrl {
         System.out.println(responseBody);
 
         assertEquals(requestBodyMap.get("area"),responseBody.get("area"));
-        response.then().assertThat().statusCode(413);
+        response.then().assertThat().statusCode(201);
         assertEquals(requestBodyMap.get("name"),responseBody.get("name"));
 
 
@@ -109,4 +90,6 @@ public class Post03 extends AgroMonitoringBaseUrl {
 
 
     }
+
+
 }
