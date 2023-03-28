@@ -57,7 +57,7 @@ public class PostVePojo02 extends HerOkuAppBaseUrl {
     BookingDatesPojo bookingDates = new BookingDatesPojo("2022-11-05","2022-11-21");
 
     BookingPojo requestBody = new BookingPojo("Aykut", "Saglam",998, true, bookingDates, "Breakfast with coffee, Dragon Juice");
-
+    System.out.println(requestBody);
     //3.adım request gonder, respond al
   Response response = given().spec(spec).contentType(ContentType.JSON).body(requestBody).when().post("/{first}");
     response.prettyPrint();

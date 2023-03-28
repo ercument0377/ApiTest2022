@@ -43,7 +43,7 @@ public class PostVePojo01 extends JsonPlaceHolderBaseUrl {
 
         //3.adım
        Response response = given().spec(spec).contentType(ContentType.JSON).body(requestBodyPojo).post("/{first}");
-      // response.prettyPrint();
+    //   response.prettyPrint();    // respose objesi bu yontemle yazdırılır
 
         //4.adım
         response.then().assertThat().statusCode(201).body("userId",equalTo(requestBodyPojo.getUserId()),

@@ -19,13 +19,13 @@ Then
     Status code is 200
 And response body is like
         {
-    "firstname": "Jim",
-    "lastname": "Jackson",
-    "totalprice": 478,
-    "depositpaid": true,
+     "firstname": "Eric",
+    "lastname": "Wilson",
+    "totalprice": 785,
+    "depositpaid": false,
     "bookingdates": {
-        "checkin": "22020-07-01",
-        "checkout": "2022-08-22"
+        "checkin": "2021-01-14",
+        "checkout": "2021-06-24"
     },
     "additionalneeds": "Breakfast"
 }
@@ -37,8 +37,8 @@ And response body is like
 
         //2.adım expected datayı set et
 
-        BookingDatesPojo bookingDates = new BookingDatesPojo("2021-06-05","2022-11-26");
-        BookingPojo expectedData = new BookingPojo("Eric", "Jones",104,true, bookingDates, "Breakfast");
+        BookingDatesPojo bookingDates = new BookingDatesPojo("2021-01-14","2021-06-24");
+        BookingPojo expectedData = new BookingPojo("Eric", "Wilson",785,false, bookingDates, "Breakfast");
         System.out.println(expectedData);
 
         //3.adım request gonder response al
